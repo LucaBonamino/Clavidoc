@@ -1,0 +1,10 @@
+{
+  "name": "Clavimit",
+  "version": "0.1.0",
+  "description": "Encrypt and decrypt files messages locally using AES-256-GCM before uploading to Google Drive.",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Open Clavidoc",
+    "default_popup": "index.html"
+  }
+}

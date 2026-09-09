@@ -1,0 +1,26 @@
+{
+  "name": "clavidoc",
+  "version": "0.1.0",
+  "description": "",
+  "homepage": "https://github.com/LucaBonamino/Clavidoc#readme",
+  "bugs": {
+    "url": "https://github.com/LucaBonamino/Clavidoc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucaBonamino/Clavidoc.git"
+  },
+  "license": "ISC",
+  "author": "LucaBonamino",
+  "scripts": {
+    "test": "vitest run",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "build:chrome": "node build/build.js -b chrome",
+    "build:firefox": "node build/build.js -b firefox"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "vtest": "^1.1.0"
+  }
+}

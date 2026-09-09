@@ -1,0 +1,16 @@
+{
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "clavidoc@clavimit.org",
+            "data_collection_permissions": {
+                "required": [
+                    "none"
+                ]
+            }
+        }
+    }
+}
