@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/LucaBonamino/Clavidoc.git"
   },
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "author": "LucaBonamino",
   "scripts": {
     "test": "vitest run",
