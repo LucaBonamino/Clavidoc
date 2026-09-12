@@ -78,26 +78,13 @@ fs.copyFileSync(
     path.join(scriptsDestination, "browser.js"),
 );
 
-const contentJsPath = path.join(
-    scriptsDestination,
-    "content.js"
-);
+const contentJsPath = path.join(scriptsDestination, "content.js");
 
-let contentJs = fs.readFileSync(
-    contentJsPath,
-    "utf8"
-);
+let contentJs = fs.readFileSync(contentJsPath, "utf8");
 
-contentJs = contentJs.replaceAll(
-    "__GOOGLE_CLIENT_ID__",
-    googleClientId
-);
+contentJs = contentJs.replaceAll("__GOOGLE_CLIENT_ID__", googleClientId);
 
-fs.writeFileSync(
-    contentJsPath,
-    contentJs,
-    "utf8"
-);
+fs.writeFileSync(contentJsPath, contentJs, "utf8");
 
 const baseManifest = JSON.parse(
     fs.readFileSync(path.join(src, "manifest", "manifest_common.json"), "utf8"),
