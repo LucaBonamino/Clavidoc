@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Clavidoc</title>
+    </head>
+    <body>
+        <label for="secretKeyFile">Secret key</label>
+        <input type="file" id="secretKeyFile">
+
+        <p id="secretKeyError" class="error-message" hidden></p>
+
+        <label for="secretKey">Secret key</label>
+        <textarea id="secretKey" rows="8"></textarea>
+
+        <br><br>
+
+        <label for="fileUpload">File to upload</label>
+        <input type="file" id="fileUpload">
+
+        <button id="uploadButton">
+            Upload to Google Drive
+        </button>
+
+        <p id="uploadStatus"></p>
+
+        <script src="scripts/content.js"></script>
+    </body>
+</html>

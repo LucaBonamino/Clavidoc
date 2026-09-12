@@ -1,7 +1,9 @@
 {
 	"permissions": [
 		"activeTab",
-		"scripting"
+		"scripting",
+		"sidePanel",
+		"identity"
 	],
 	"side_panel": {
 		"default_path": "index.html"

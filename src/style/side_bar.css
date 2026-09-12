@@ -1,0 +1,47 @@
+.card-header {
+    cursor: pointer;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+}
+
+.card-header::-webkit-details-marker {
+    display: none;
+}
+
+.card-header h2 {
+    display: inline;
+    margin: 0;
+}
+
+.card-header h2::after {
+    content: "›";
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.card[open] .card-header h2::after {
+    transform: rotate(90deg);
+}
+
+.card-content {
+    padding-top: 16px;
+}
+
+.context-status {
+    margin-bottom: 16px;
+    padding: 10px 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    color: var(--text-secondary);
+    background: var(--surface);
+}
+
+.context-status--active {
+    /*color: var(--text);*/
+    color: var(--accent);
+}

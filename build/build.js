@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { readdirSync, writeFileSync } = require("node:fs");
 const path = require("node:path");
+require("dotenv").config();
 
 const Browsers = {
     Chrome: "chrome",
@@ -27,6 +28,12 @@ function parseBrowserArgument() {
 }
 
 const browser = parseBrowserArgument();
+const googleClientId = process.env.GOOGLE_CLIENT_ID;
+
+if (!googleClientId) {
+    console.error("Missing GOOGLE_CLIENT_ID in .env");
+    process.exit(1);
+}
 
 const src = path.join("src");
 const dist = path.join("dist");
@@ -56,15 +63,41 @@ for (const item of fs.readdirSync(src, { withFileTypes: true })) {
     });
 }
 
-// const scriptsSrc = path.join(src, "scripts");
-// const scriptsDestination = path.join(distBrowser, "scripts");
+const scriptsSrc = path.join(src, "scripts");
+const scriptsDestination = path.join(distBrowser, "scripts");
 
-// fs.cpSync(scriptsSrc, scriptsDestination, {
-//     recursive: true,
-//     filter: (source) => {
-//         return path.basename(source) !== "browser";
-//     },
-// });
+fs.cpSync(scriptsSrc, scriptsDestination, {
+    recursive: true,
+    filter: (source) => {
+        return path.basename(source) !== "browser";
+    },
+});
+
+fs.copyFileSync(
+    path.join(scriptsSrc, "browser", `${browser}.js`),
+    path.join(scriptsDestination, "browser.js"),
+);
+
+const contentJsPath = path.join(
+    scriptsDestination,
+    "content.js"
+);
+
+let contentJs = fs.readFileSync(
+    contentJsPath,
+    "utf8"
+);
+
+contentJs = contentJs.replaceAll(
+    "__GOOGLE_CLIENT_ID__",
+    googleClientId
+);
+
+fs.writeFileSync(
+    contentJsPath,
+    contentJs,
+    "utf8"
+);
 
 const baseManifest = JSON.parse(
     fs.readFileSync(path.join(src, "manifest", "manifest_common.json"), "utf8"),
